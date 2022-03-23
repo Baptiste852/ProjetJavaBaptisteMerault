@@ -8,7 +8,7 @@ public class Gestion {
 	public Gestion() {
 		JFrame frame=new JFrame();
 		frame.setSize(500,500);
-		frame.setTitle("Lego Game");
+		frame.setTitle("My Lego Game");
 		frame.setResizable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		BibliBriques bb=new BibliBriques();
