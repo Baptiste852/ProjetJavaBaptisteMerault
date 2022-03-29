@@ -4,8 +4,8 @@ import javax.swing.JPanel;
 public class BibliBriques extends JPanel {
 	
 	public BibliBriques() {
-		String[] tabBriques= {"brique 1","brique 2","brique 3","brique 4","brique 5"};
-		List jl=new List(20);
+		String[] tabBriques= {"taille 8","  rouge","    brique 1","  bleu","    brique 2","  vert","    brique 3"};
+		List jl=new List(10);
 		for (int i=0; i<tabBriques.length; i++) {
 			jl.add(tabBriques[i]);
 		}
@@ -14,6 +14,5 @@ public class BibliBriques extends JPanel {
 
 	public static void main(String[] args) {
 		
-	}
-
+	}	
 }
