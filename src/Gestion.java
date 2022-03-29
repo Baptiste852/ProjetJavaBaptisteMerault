@@ -15,6 +15,8 @@ public class Gestion {
 		frame.add(bm,BorderLayout.CENTER);
 		VisuConstruction vc=new VisuConstruction();
 		frame.add(vc,BorderLayout.EAST);
+		BEnreg be=new BEnreg();
+		frame.add(be,BorderLayout.SOUTH);
 		frame.setVisible(true);
 	}
 
@@ -22,5 +24,5 @@ public class Gestion {
 		
 		Gestion g=new Gestion();
 	}
-
 }
+
