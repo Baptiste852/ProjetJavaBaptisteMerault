@@ -2,35 +2,39 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
-public class VisuConstruction extends Canvas implements MouseListener,KeyListener {
-	
-	Briques br=new Briques();
-	String imageDefault =br.get(0);
-	Image img = null;
+public class VisuConstruction extends Canvas implements MouseListener {
 	
 	public VisuConstruction() {
 		this.setBackground(Color.cyan);
 		this.addMouseListener(this);
 		this.setPreferredSize(new Dimension(640,360));
-		this.addKeyListener(this);
-		try {
-			img = ImageIO.read(new File(imageDefault));
-		} catch (IOException e1) {
-			throw new RuntimeException("L'image "+imageDefault+" est introuvable");
-		}
+	}
+	
+	public void paint1(Graphics g,int x,int y) {
+		g.setColor(Color.red);
+		g.drawLine(x, y, x+50, y);
+		g.drawLine(x, y, x, y+30);
+		g.drawLine(x+50, y, x+50, y+30);
+		g.drawLine(x, y+30, x+50, y+30);
 	}
 	
 	public void paint2(Graphics g,int x,int y) {
-		g.drawImage(img, x, y, 50, 50, null);
+		g.setColor(Color.blue);
+		g.drawLine(x, y, x+50, y);
+		g.drawLine(x, y, x, y+30);
+		g.drawLine(x+50, y, x+50, y+30);
+		g.drawLine(x, y+30, x+50, y+30);
+	}
+	
+	public void paint3(Graphics g,int x,int y) {
+		g.setColor(Color.green);
+		g.drawLine(x, y, x+50, y);
+		g.drawLine(x, y, x, y+30);
+		g.drawLine(x+50, y, x+50, y+30);
+		g.drawLine(x, y+30, x+50, y+30);
 	}
 	
 	public static void main(String[] args) {
@@ -60,28 +64,7 @@ public class VisuConstruction extends Canvas implements MouseListener,KeyListene
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		paint2(getGraphics(),e.getX(),e.getY());
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		if (e.getKeyChar()=='a') {
-			
-		} else if (e.getKeyChar()=='z') {
-			
-		} else if (e.getKeyChar()=='e') {
-			
-		}
+		paint1(getGraphics(),e.getX(),e.getY());
 	}
 
 }
