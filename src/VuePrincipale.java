@@ -1,23 +1,20 @@
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
-public class VuePrincipale {
+public class VuePrincipale extends JFrame {
 	
 	public VuePrincipale(Modele m, Controleur c) {
-		JFrame frame=new JFrame();
-		frame.setSize(500,500);
-		frame.setTitle("My Lego Game");
-		frame.setResizable(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(500,500);
+		this.setTitle("My Lego Game");
+		this.setResizable(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		BibliBriques bb=new BibliBriques(c);
-		frame.add(bb,BorderLayout.WEST);
-		BibliModeles bm=new BibliModeles();
-		frame.add(bm,BorderLayout.CENTER);
+		this.add(bb,BorderLayout.WEST);
 		VisuConstruction vc=new VisuConstruction(c, m);
-		frame.add(vc,BorderLayout.EAST);
-		BEnreg be=new BEnreg();
-		frame.add(be,BorderLayout.SOUTH);
-		frame.setVisible(true);
+		BibliModeles bm=new BibliModeles();
+		this.add(bm, BorderLayout.CENTER);
+		this.add(vc,BorderLayout.EAST);
+		this.setVisible(true);
 	}
 
 	public static void main(String[] args) {
@@ -27,5 +24,6 @@ public class VuePrincipale {
 		Controleur ctrl = new Controleur(modl); 
 		
 		VuePrincipale g=new VuePrincipale(modl, ctrl);
+		
 	}
 }
