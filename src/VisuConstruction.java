@@ -20,11 +20,15 @@ public class VisuConstruction extends Canvas implements Observer {
 	@Override
 	public void paint(Graphics g) {
 		for (Brique b : this.modl.constr) {
-			g.setColor(b.couleur);
+			g.setColor(Color.white);
 			g.drawLine(b.x, b.y, b.x+50, b.y);
 			g.drawLine(b.x, b.y, b.x, b.y+30);
 			g.drawLine(b.x+50, b.y, b.x+50, b.y+30);
 			g.drawLine(b.x, b.y+30, b.x+50, b.y+30);
+			g.setColor(b.couleur);
+			g.fillRect(b.x, b.y, 50, 30);
+			g.setColor(Color.white);
+			g.drawString("Lego", b.x+10, b.y+15);
 		}
 	}
 
