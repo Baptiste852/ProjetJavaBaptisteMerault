@@ -1,4 +1,5 @@
 Projet Java Baptiste
 ====================
-- projet JavaFX
+- projet JavaFX, Swing, AWT
+- My Lego Game
 - UE Java Champollion
