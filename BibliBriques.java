@@ -1,4 +1,5 @@
 package application;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.List;
@@ -15,6 +16,7 @@ public class BibliBriques extends JPanel {
 	JButton bvert=new JButton("brique 3");
 	
 	public BibliBriques(Controleur c) {
+		this.setBackground(Color.ORANGE);
 		String[] tabBriques= {"taille 50/30","  rouge","    brique 1","  bleu","    brique 2","  vert","    brique 3"};
 		List jl=new List(10);
 		for (int i=0; i<tabBriques.length; i++) {
@@ -24,15 +26,15 @@ public class BibliBriques extends JPanel {
 		JButton brouge = new JButton("brique 1");
 		JButton bbleu=new JButton("brique 2");
 		JButton bvert=new JButton("brique 3");
-		brouge.setPreferredSize(new Dimension(150,50));
+		brouge.setPreferredSize(new Dimension(150,75));
 		brouge.setActionCommand("rouge");
 		couleurs.put("rouge", Color.red);
 		brouge.addActionListener(c);
-		setPreferredSize(new Dimension(150,50));
+		setPreferredSize(new Dimension(150,75));
 		bbleu.setActionCommand("bleu");
 		couleurs.put("bleu", Color.blue);
 		bbleu.addActionListener(c);
-		setPreferredSize(new Dimension(150,50));
+		setPreferredSize(new Dimension(150,75));
 		bvert.setActionCommand("vert");
 		couleurs.put("vert", Color.green);
 		bvert.addActionListener(c);
