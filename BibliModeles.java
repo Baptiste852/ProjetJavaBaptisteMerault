@@ -1,5 +1,6 @@
 package application;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.List;
 import java.awt.event.ActionEvent;
@@ -16,6 +17,7 @@ public class BibliModeles extends JPanel implements ActionListener {
 	JButton bm3=new JButton("modele 3");
 	
 	public BibliModeles() {
+		this.setBackground(Color.ORANGE);
 		String[] tabModeles= {"modele 1","modele 2"};
 		List jl=new List(10);
 		for (int i=0; i<tabModeles.length; i++) {
@@ -47,3 +49,4 @@ public class BibliModeles extends JPanel implements ActionListener {
 	}
 
 }
+
