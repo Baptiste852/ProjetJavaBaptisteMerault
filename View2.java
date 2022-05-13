@@ -12,11 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 import javafx.scene.transform.Rotate;
 
@@ -25,6 +27,7 @@ public class View2 {
 	public Modele m=new Modele();
     public Controleur cont=new Controleur(m);
 	
+    public TextArea ta=new TextArea();
     public Button addTab = new Button("Ajouter un nouvel onglet");
     public TabPane tabPane=new TabPane();
     public Tab tab1=new Tab("Main Tab");
@@ -48,16 +51,29 @@ public class View2 {
 	final DoubleProperty angleX = new SimpleDoubleProperty(0);
 	final DoubleProperty angleY = new SimpleDoubleProperty(0);
 	Box base = new Box(600,20,600);
-	
+	PhongMaterial material=new PhongMaterial(Color.BURLYWOOD);
+
     Parent view;
 
 	public View2() {
 		view = createView();
 	}
 	
-	 private BorderPane createView() {
+	 private BorderPane createView() { 
+		ta.setPrefSize(500,50);
+		ta.setText("GUIDE DES TOUCHES ET AVERTISSEMENTS\n\n"
+				+ "touche A : supprimer le dernier bloc posé dans le Main Tab\n"
+				+ "touche Z : supprimer le dernier bloc posé dans le New Tab\n"
+				+ "AVERTISSEMENT 1 : Le fait d'empiler 2 briques différentes entraîne des problèmes de collisions. Il faut donc empiler des briques de même type.");
+		ta.setStyle("-fx-control-inner-background: #F0FFF0");
+		bp.setStyle("-fx-background-color: #90EE90");
+		addTab.setStyle("-fx-text-fill: #0000ff ; -fx-border-color : #0000ff ;");
+		vp.setStyle("-fx-text-fill: #0000ff ; -fx-border-color : #0000ff ;");
+		base.setMaterial(material);
 		tab1.setContent(scene3);
+		tab1.setStyle("-fx-background-color: #F0FFF0");
 		tabPane.getTabs().add(tab1);
+		tabPane.setStyle("-fx-background-color: #87CEFA");
 		group.translateXProperty().set(400);
 		group.translateYProperty().set(350);
 		group.translateZProperty().set(0);
@@ -66,7 +82,9 @@ public class View2 {
 		tp.getChildren().addAll(vp,addTab);
 		lv.getItems().addAll("taille 50/30","  rouge","    brique 1","    brique 2","  bleu","    brique 3","    brique 4","  vert","    brique 5","    brique 6");
 		lv2.getItems().addAll("modele 1","modele 2","modele 3","modele 4");
-		hb.getChildren().addAll(vp,addTab);
+		lv.setStyle("-fx-border-color : #FF00FF ; -fx-control-inner-background: #FFFACD ;");
+		lv2.setStyle("-fx-border-color : #FF00FF ; -fx-control-inner-background: #FFFACD ;");
+		hb.getChildren().addAll(ta,vp,addTab);
 		vb.getChildren().add(scene2);
 		hb2.getChildren().add(lv);
 		hb3.getChildren().add(lv2);
