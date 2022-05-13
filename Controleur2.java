@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Stack;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -28,6 +29,10 @@ public class Controleur2 {
 	double anchorAngleX = 0;
 	double anchorAngleY = 0;
 	
+	Stack<Box> sb=new Stack<>();
+	Stack<Cylinder> sc=new Stack<>();
+	Stack<Box> sb2=new Stack<>();
+	Stack<Cylinder> sc2=new Stack<>();
 	int cpt=0;
 	int cpt2=0;
 	int cpt3=0;
@@ -68,9 +73,20 @@ public class Controleur2 {
 					cpt2+=1;
 					for (int i=1; i<500; i++) {
 						if (cpt2==i && cpt-i+1!=0) {
+							if (view.group.getChildren().get(cpt-i+1).getClass()==Box.class) {
+								sb.push((Box) view.group.getChildren().get(cpt-i+1));
+							} else {
+								sc.push((Cylinder) view.group.getChildren().get(cpt-i+1));
+							}
 							view.group.getChildren().remove(cpt-i+1);
 						}
 					}
+				} else if (arg0.getCode()==KeyCode.Q) {
+					view.group.getChildren().add(sb.peek());
+					sb.pop();
+				} else if (arg0.getCode()==KeyCode.S) {
+					view.group.getChildren().add(sc.peek());
+					sc.pop();
 				}
 			}
     	});
@@ -251,9 +267,20 @@ public class Controleur2 {
 						cpt4+=1;
 						for (int i=1; i<500; i++) {
 							if (cpt4==i && cpt3-i+1!=0) {
+								if (group.getChildren().get(cpt3-i+1).getClass()==Box.class) {
+									sb2.push((Box) group.getChildren().get(cpt3-i+1));
+								} else {
+									sc2.push((Cylinder) group.getChildren().get(cpt3-i+1));
+								}
 								group.getChildren().remove(cpt3-i+1);
 							}
 						}
+					} else if (arg0.getCode()==KeyCode.W) {
+						group.getChildren().add(sb2.peek());
+						sb2.pop();
+					} else if (arg0.getCode()==KeyCode.X) {
+						group.getChildren().add(sc2.peek());
+						sc2.pop();
 					}
 				}
 	    	});
@@ -413,4 +440,3 @@ public class Controleur2 {
 		
 	}
 }
-
