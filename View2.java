@@ -64,6 +64,10 @@ public class View2 {
 		ta.setText("GUIDE DES TOUCHES ET AVERTISSEMENTS\n\n"
 				+ "touche A : supprimer le dernier bloc posé dans le Main Tab\n"
 				+ "touche Z : supprimer le dernier bloc posé dans le New Tab\n"
+				+ "touche Q : reposer le dernier bloc supprimer seulement si il s'agit de la brique 1 ou 3 ou 5 dans le Main Tab\n"
+				+ "touche S : reposer le dernier bloc supprimer seulement si il s'agit de la brique 2 ou 4 ou 6 dans le Main Tab\n"
+				+ "touche W : reposer le dernier bloc supprimer seulement si il s'agit de la brique 1 ou 3 ou 5 dans le New Tab\n"
+				+ "touche X : reposer le dernier bloc supprimer seulement si il s'agit de la brique 2 ou 4 ou 6 dans le New Tab\n"
 				+ "AVERTISSEMENT 1 : Le fait d'empiler 2 briques différentes entraîne des problèmes de collisions. Il faut donc empiler des briques de même type.");
 		ta.setStyle("-fx-control-inner-background: #F0FFF0");
 		bp.setStyle("-fx-background-color: #90EE90");
