@@ -13,6 +13,8 @@ import javafx.scene.Node;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
 import javafx.scene.control.Tab;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
@@ -25,6 +27,14 @@ public class Controleur2 {
 	double anchorX, anchorY;
 	double anchorAngleX = 0;
 	double anchorAngleY = 0;
+	
+	int cpt=0;
+	int cpt2=0;
+	int cpt3=0;
+	int cpt4=0;
+	double x;
+	double y;
+	double z;
 	
     public Controleur2(View2 view,Modele2 modl2){
         setView(view, modl2);
@@ -51,6 +61,19 @@ public class Controleur2 {
 	}
     
     public void setView(View2 view,Modele2 modl2){
+    	view.scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent arg0) {
+				if (arg0.getCode()==KeyCode.A) {
+					cpt2+=1;
+					for (int i=1; i<500; i++) {
+						if (cpt2==i && cpt-i+1!=0) {
+							view.group.getChildren().remove(cpt-i+1);
+						}
+					}
+				}
+			}
+    	});
 		view.lv.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent arg0) {
 				if ((arg0.getY()>=50.6 && arg0.getY()<=69.3) || (arg0.getY()>=121.3 && arg0.getY()<=138) || (arg0.getY()>=192 && arg0.getY()<=212)) {
@@ -66,6 +89,7 @@ public class Controleur2 {
 							double x=arg0.getX();
 							double y=arg0.getY();
 							double z=arg0.getZ();
+							cpt+=1;
 							modl2.createBox(x,y,z,view.co);
 						}
 					});
@@ -82,6 +106,7 @@ public class Controleur2 {
 							double x=arg0.getX();
 							double y=arg0.getY();
 							double z=arg0.getZ();
+							cpt+=1;
 							modl2.createBox2(x,y,z,view.co);
 						}
 					});
@@ -202,6 +227,8 @@ public class Controleur2 {
 			Tab tab=new Tab("New Tab");
 			Group group=new Group();
 			Box base = new Box(600,20,600);
+			PhongMaterial material=new PhongMaterial(Color.BURLYWOOD);
+			base.setMaterial(material);
 			final DoubleProperty angleX = new SimpleDoubleProperty(0);
 			final DoubleProperty angleY = new SimpleDoubleProperty(0);
 			group.translateXProperty().set(400);
@@ -217,6 +244,19 @@ public class Controleur2 {
 			xRotate2.angleProperty().bind(angleX);
 			yRotate2.angleProperty().bind(angleY);
 			SubScene scene=new SubScene(group,750,750,true,SceneAntialiasing.BALANCED);
+			view.scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent arg0) {
+					if (arg0.getCode()==KeyCode.Z) {
+						cpt4+=1;
+						for (int i=1; i<500; i++) {
+							if (cpt4==i && cpt3-i+1!=0) {
+								group.getChildren().remove(cpt3-i+1);
+							}
+						}
+					}
+				}
+	    	});
 			scene.setOnMousePressed(event2 -> {
 			     anchorX = event2.getSceneX();
 			     anchorY = event2.getSceneY();
@@ -242,6 +282,7 @@ public class Controleur2 {
 								double x=arg0.getX();
 								double y=arg0.getY();
 								double z=arg0.getZ();
+								cpt3+=1;
 								createBox(group,x,y,z,view.co);
 							}
 						});
@@ -258,6 +299,7 @@ public class Controleur2 {
 								double x=arg0.getX();
 								double y=arg0.getY();
 								double z=arg0.getZ();
+								cpt3+=1;
 								createBox2(group,x,y,z,view.co);
 							}
 						});
@@ -358,6 +400,7 @@ public class Controleur2 {
 					}
 				}
 			});
+			tab.setStyle("-fx-background-color: #F0FFF0");
 			tab.setContent(scene);
 			view.tab1.setContent(view.scene3);
 	        view.tabPane.getTabs().add(tab); 
@@ -370,3 +413,4 @@ public class Controleur2 {
 		
 	}
 }
+
