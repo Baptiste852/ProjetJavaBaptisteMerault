@@ -1,6 +1,7 @@
 package application;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 
@@ -8,6 +9,7 @@ public class VuePrincipale extends JFrame {
 	
 	public VuePrincipale(Modele m, Controleur c) {
 		this.setSize(200,200);
+		this.setBackground(Color.YELLOW);
 		this.setTitle("My Lego Game");
 		this.setResizable(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
