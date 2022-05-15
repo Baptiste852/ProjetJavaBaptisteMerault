@@ -21,7 +21,7 @@ public class VisuConstruction extends Canvas implements Observer {
 	@Override
 	public void paint(Graphics g) {
 		for (int i=0; i<=950; i=i+50) {
-			for (int j=0; j<=560; j=j+30) {
+			for (int j=0; j<=645; j=j+30) {
 				g.drawRect(i, j, 50, 30);
 			}
 		}
