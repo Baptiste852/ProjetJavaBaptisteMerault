@@ -24,12 +24,14 @@ public class BibliModeles extends JPanel implements ActionListener {
 			jl.add(tabModeles[i]);
 		}
 		this.add(jl);
-		bm1.setPreferredSize(new Dimension(150,75));
+		setPreferredSize(new Dimension(150,75));
 		bm1.setActionCommand("bm1");
 		bm1.addActionListener(this);
-		bm2.setPreferredSize(new Dimension(150,75));
+		setPreferredSize(new Dimension(150,75));
 		bm2.setActionCommand("bm2");
 		bm2.addActionListener(this);
+		this.add(bm1);
+		this.add(bm2);
 	}
 
 	public static void main(String[] args) {
@@ -49,4 +51,3 @@ public class BibliModeles extends JPanel implements ActionListener {
 	}
 
 }
-
