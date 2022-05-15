@@ -26,7 +26,7 @@ public class BibliBriques extends JPanel {
 		JButton brouge = new JButton("brique 1");
 		JButton bbleu=new JButton("brique 2");
 		JButton bvert=new JButton("brique 3");
-		brouge.setPreferredSize(new Dimension(150,75));
+		setPreferredSize(new Dimension(150,75));
 		brouge.setActionCommand("rouge");
 		couleurs.put("rouge", Color.red);
 		brouge.addActionListener(c);
